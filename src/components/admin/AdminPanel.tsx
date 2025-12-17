@@ -78,7 +78,7 @@ export function AdminPanel({ onLogout }: AdminPanelProps) {
     try {
       setBookingsLoading(true);
       setBookingsError(null);
-      const res = await fetch('http://localhost:4000/api/bookings');
+      const res = await fetch('https://air-vibe-lz1x.onrender.com/api/bookings');
       if (!res.ok) throw new Error('Ошибка при загрузке бронирований');
       const data: Booking[] = await res.json();
       setBookings(data);
@@ -95,7 +95,7 @@ export function AdminPanel({ onLogout }: AdminPanelProps) {
     try {
       setScheduleLoading(true);
       setScheduleError(null);
-      const res = await fetch('http://localhost:4000/api/schedule');
+      const res = await fetch('https://air-vibe-lz1x.onrender.com/api/schedule');
       if (!res.ok) throw new Error('Ошибка при загрузке расписания');
       const data: ScheduleConfig = await res.json();
       setScheduleConfig(data);
@@ -115,7 +115,7 @@ export function AdminPanel({ onLogout }: AdminPanelProps) {
   // ---- смена статуса брони ----
   const handleStatusChange = async (bookingId: string, status: BookingStatus) => {
     try {
-      const res = await fetch(`http://localhost:4000/api/bookings/${bookingId}`, {
+      const res = await fetch(`https://air-vibe-lz1x.onrender.com/api/bookings/${bookingId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status }),
@@ -164,7 +164,7 @@ export function AdminPanel({ onLogout }: AdminPanelProps) {
   const saveScheduleConfig = async () => {
     if (!scheduleConfig) return;
     try {
-      const res = await fetch('http://localhost:4000/api/schedule', {
+      const res = await fetch('https://air-vibe-lz1x.onrender.com/api/schedule', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(scheduleConfig),
@@ -251,7 +251,7 @@ export function AdminPanel({ onLogout }: AdminPanelProps) {
           clientPhone: trimmedPhone,
         };
 
-        const res = await fetch('http://localhost:4000/api/bookings', {
+        const res = await fetch('https://air-vibe-lz1x.onrender.com/api/bookings', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body),
