@@ -100,7 +100,7 @@ export const BookingModal = ({ isOpen, onClose, services, initialServiceId }: Bo
 
     const fetchSchedule = async () => {
       try {
-        const res = await fetch('https://air-vibe-lz1x.onrender.com/api/schedule');
+        const res = await fetch('https://air-vibe-xpiw.onrender.com/api/schedule');
         if (!res.ok) throw new Error('Ошибка при загрузке расписания');
         const data: ScheduleConfig = await res.json();
         setScheduleConfig(data);
@@ -155,7 +155,7 @@ export const BookingModal = ({ isOpen, onClose, services, initialServiceId }: Bo
     setBookingStatus('loading');
 
     try {
-      const response = await fetch('https://air-vibe-lz1x.onrender.com/api/bookings', {
+      const response = await fetch('https://air-vibe-xpiw.onrender.com/api/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -550,7 +550,7 @@ const TimeSelection = ({ selectedDate, onSelectTime, onBack }: TimeSelectionProp
     setScheduleLoading(true);
     const fetchSchedule = async () => {
       try {
-        const res = await fetch('https://air-vibe-lz1x.onrender.com/api/schedule');
+        const res = await fetch('https://air-vibe-xpiw.onrender.com/api/schedule');
         if (!res.ok) throw new Error('Ошибка при загрузке расписания');
         const data: ScheduleConfig = await res.json();
         setScheduleConfig(data);
@@ -570,7 +570,7 @@ const TimeSelection = ({ selectedDate, onSelectTime, onBack }: TimeSelectionProp
       setLoading(true);
       try {
         const res = await fetch(
-          `https://air-vibe-lz1x.onrender.com/api/bookings?date=${encodeURIComponent(selectedDate)}`,
+          `https://air-vibe-xpiw.onrender.com/api/bookings?date=${encodeURIComponent(selectedDate)}`,
         );
         if (!res.ok) throw new Error('Ошибка при загрузке бронирований');
         const data: Booking[] = await res.json();
