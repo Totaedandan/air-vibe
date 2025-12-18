@@ -37,7 +37,7 @@ export function GlowCtaSection({ onBook }: GlowCtaSectionProps) {
               5 000 ₸
             </div>
             <div className="text-xs sm:text-sm text-slate-400 mb-5 md:mb-6">
-              вместо 8 000 ₸
+              вместо 12 000 ₸
             </div>
             <button
               onClick={() => onBook(trial.id)}
